@@ -14,13 +14,14 @@
       </el-form-item>
       <el-form-item prop="password">
         <el-input
+          ref="password"
           v-model="loginForm.password"
-          type="password"
           auto-complete="off"
           placeholder="密码"
-          @keyup.enter.native="handleLogin"
+          :type="passwordType"
         >
           <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon" />
+          <svg-icon slot="suffix" :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" class="el-input__icon input-icon" @click.native.prevent="showPwd" />
         </el-input>
       </el-form-item>
       <el-form-item v-if="captchaEnabled" prop="code">
@@ -56,7 +57,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2018-2023 sj.com All Rights Reserved.</span>
+      <span>Copyright © 2018-2024 sj.com All Rights Reserved.</span>
     </div>
   </div>
 </template>
@@ -71,6 +72,7 @@ export default {
   data() {
     return {
       codeUrl: '',
+      passwordType: 'password',
       loginForm: {
         username: 'admin',
         password: 'admin123',
@@ -91,7 +93,7 @@ export default {
       // 验证码开关
       captchaEnabled: true,
       // 注册开关
-      register: false,
+      register: true,
       redirect: undefined
     }
   },
@@ -108,6 +110,16 @@ export default {
     this.getCookie()
   },
   methods: {
+    showPwd() {
+      if (this.passwordType === 'password') {
+        this.passwordType = ''
+      } else {
+        this.passwordType = 'password'
+      }
+      this.$nextTick(() => {
+        this.$refs.password.focus()
+      })
+    },
     getCode() {
       getCodeImg().then(res => {
         this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled
@@ -155,7 +167,7 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss" scoped>
 .login {
   display: flex;
   justify-content: center;
