@@ -144,13 +144,13 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss" scoped>
 .register {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("../../assets/images/login-background.jpg");
+  background-image: url("../../assets/images/landscape1.jpg");
   background-size: cover;
 }
 .title {
@@ -188,6 +188,15 @@ export default {
   img {
     cursor: pointer;
     vertical-align: middle;
+  }
+}
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
   }
 }
 .el-register-footer {

@@ -213,6 +213,15 @@ export default {
     vertical-align: middle;
   }
 }
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
 .el-login-footer {
   height: 40px;
   line-height: 40px;
