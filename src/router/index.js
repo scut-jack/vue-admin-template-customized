@@ -68,6 +68,28 @@ export const constantRoutes = [
   },
 
   {
+    path: '/monitor',
+    component: Layout,
+    redirect: '/monitor/cache',
+    name: '系统监控',
+    meta: { title: '系统监控', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'cache',
+        name: 'Cache',
+        component: () => import('@/views/monitor/cache/index'),
+        meta: { title: 'Cache', icon: 'dashboard' }
+      },
+      {
+        path: 'cacheList',
+        name: 'CacheList',
+        component: () => import('@/views/monitor/cache/list'),
+        meta: { title: 'CacheList', icon: 'dashboard' }
+      }
+    ]
+  },
+
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
