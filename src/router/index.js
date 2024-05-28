@@ -85,6 +85,18 @@ export const constantRoutes = [
         name: 'CacheList',
         component: () => import('@/views/monitor/cache/list'),
         meta: { title: 'CacheList', icon: 'dashboard' }
+      },
+      {
+        path: 'server',
+        name: 'Server',
+        component: () => import('@/views/monitor/server'),
+        meta: { title: 'Server', icon: 'table' }
+      },
+      {
+        path: 'druid',
+        name: 'Druid',
+        component: () => import('@/views/monitor/druid'),
+        meta: { title: 'Druid', icon: 'tree' }
       }
     ]
   },
