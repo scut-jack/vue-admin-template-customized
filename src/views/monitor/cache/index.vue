@@ -42,7 +42,9 @@
           </div>
         </el-card>
       </el-col>
+    </el-row>
 
+    <el-row>
       <el-col :span="12" class="card-box">
         <el-card>
           <div slot="header"><span><i class="el-icon-pie-chart" /> 命令统计</span></div>
