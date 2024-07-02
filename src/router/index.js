@@ -97,6 +97,12 @@ export const constantRoutes = [
         name: 'Druid',
         component: () => import('@/views/monitor/druid'),
         meta: { title: 'Druid', icon: 'tree' }
+      },
+      {
+        path: 'online',
+        name: 'Online',
+        component: () => import('@/views/monitor/online'),
+        meta: { title: 'Online', icon: 'tree' }
       }
     ]
   },

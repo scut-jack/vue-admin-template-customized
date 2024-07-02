@@ -88,7 +88,7 @@ export function selectDictLabel(datas, value) {
 
 // 回显数据字典（字符串、数组）
 export function selectDictLabels(datas, value, separator) {
-  if (value === undefined || value.length ===0) {
+  if (value === undefined || value.length === 0) {
     return "";
   }
   if (Array.isArray(value)) {
@@ -223,6 +223,9 @@ export function tansParams(params) {
         result += part + encodeURIComponent(value) + "&";
       }
     }
+  }
+  if (result !== '' && result.length > 0 && result.slice(-1) === '&') {
+    result = result.slice(0, -1);
   }
   return result
 }
